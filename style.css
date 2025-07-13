@@ -1,0 +1,425 @@
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  background-color: #111;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo a {
+  color: orangered;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: orangered;
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #000, #1a1a1a);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-content h2 {
+  font-size: 1.5rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.hero-name {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: orangered;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.hero-content h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.word-rotate {
+  display: inline-block;
+  position: relative;
+  height: 1.4em;
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-left: 10px;
+  color: orangered;
+  font-weight: bold;
+}
+
+.word-rotate span {
+  display: block;
+  animation: word 5s infinite ease;
+}
+
+@keyframes word {
+  0% { transform: translateY(0%); }
+  50% { transform: translateY(-100%); }
+  100% { transform: translateY(-200%); }
+}
+
+/* ========== SECTION STYLES ========== */
+.section {
+  padding: 80px 40px;
+  background-color: #111;
+  text-align: center;
+}
+
+.section:nth-of-type(even) {
+  background-color: #1a1a1a;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  color: orangered;
+  margin-bottom: 30px;
+}
+
+/* ========== ABOUT CARD & TEXT ========== */
+.card {
+  position: relative;
+  width: 400px;
+  height: 420px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
+  overflow: hidden;
+  padding: 20px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s;
+  z-index: 0;
+}
+
+.card:hover img {
+  width: 100px;
+  height: 100px;
+  top: 30px;
+  left: 30px;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.hover-bar {
+  position: absolute;
+  top: 30px;
+  left: 130px;
+  width: 230px;
+  height: 100px;
+  background-color: orangered;
+  border-radius: 10px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .hover-bar {
+  opacity: 1;
+}
+
+.info {
+  position: absolute;
+  top: 65px;
+  left: 150px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover .info {
+  opacity: 1;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.role {
+  font-size: 1rem;
+  color: #eee;
+  margin-top: 5px;
+}
+
+
+.card p {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+  max-height: 350px; /* ← allow more lines */
+  overflow: hidden;
+
+  font-size: 0.85rem;  /* slightly smaller font */
+  font-style: normal;
+  font-weight: 400;
+  color: #333;
+  background-color: #f8f8f8;
+  padding: 10px 14px;  /* reduced padding */
+  border-radius: 10px;
+  line-height: 1.5;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 40px auto;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ========== SKILLS GRID ========== */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skills-grid img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 5px #fff3);
+  transition: transform 0.3s;
+}
+
+.skills-grid img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px orangered);
+}
+
+/* ========== PROJECT & INTERNSHIP CARDS ========== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: orangered;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.project-card a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.contact-card {
+  background-color: #222;
+  padding: 30px 20px;
+  border-radius: 12px;
+  width: 180px;
+  height: 160px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(255, 69, 0, 0.4);
+}
+
+.contact-card i {
+  font-size: 3rem;
+  color: orangered;
+  margin-bottom: 15px;
+}
+
+.contact-card span {
+  display: block;
+  font-size: 1.1rem;
+  color: #ccc;
+  font-weight: 500;
+}
+.leetcode-icon {
+  height: 48px;
+  width: auto;
+  margin-bottom: 15px;
+  object-fit: contain;
+  filter: brightness(1.1) contrast(1.2);
+}
+@media (max-width: 900px) {
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr); /* Medium screens: 2 per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr; /* Small screens: 1 per row */
+  }
+}
+
+
+/* ========== RESUME BUTTON ========== */
+.resume-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: orangered;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.resume-btn:hover {
+  background-color: darkorange;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  background: #000;
+  color: #888;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  .about-text {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .skills-grid img {
+    width: 50px;
+    height: 50px;
+  }
+}
+.project-card i {
+  color: orangered;
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
