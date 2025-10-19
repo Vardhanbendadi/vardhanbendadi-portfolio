@@ -1,2 +1,2 @@
 # vardhanbendadi-portfolio
-my oersonal portfolio
+my personal portfolio
