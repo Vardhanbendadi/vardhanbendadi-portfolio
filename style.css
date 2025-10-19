@@ -277,7 +277,12 @@ body {
   gap: 30px;
   margin-top: 40px;
 }
-
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
 .project-card {
   background-color: #222;
   padding: 20px;
