@@ -269,6 +269,48 @@ body {
   transform: scale(1.2);
   filter: drop-shadow(0 0 8px orangered);
 }
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.skill {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.skill img {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.3s ease;
+}
+
+.skill span {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.skill:hover img {
+  transform: scale(1.1);
+}
+
+.skill:hover span {
+  opacity: 1;
+}
 
 /* ========== PROJECT & INTERNSHIP CARDS ========== */
 .project-grid {
